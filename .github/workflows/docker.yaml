@@ -35,6 +35,7 @@ jobs:
           image=$(echo "$line" | awk '{print $NF}')
           # 获取 镜像名:版本号  例如nginx:1.25.3
           image_name_tag=$(echo "$image" | awk -F'/' '{print $NF}')
+          echo "---$image_name_tag"
           new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
           echo $ALIYUN_REGISTRY
           echo "docker tag $image $new_image"
